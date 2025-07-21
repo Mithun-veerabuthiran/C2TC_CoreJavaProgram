@@ -3,9 +3,9 @@ package day1.entity;
 public class CustomerDemo {
 
 	public static void main(String[] args) {
-		int m,n;
-		m=100;
-		n=50;
+//		int m,n;
+//		m=100;
+//		n=50;
 	//customer 1	
 	 Customer c1 = new Customer();
 	 c1.cid=101;
@@ -22,6 +22,17 @@ public class CustomerDemo {
 	 System.out.println("Customer id:"+c2.cid);
 	 System.out.println("Customer name:"+c2.cname);
 	 System.out.println("Customer city:"+c2.city);
+	 // getter and setter method
+	 Customer c3 = new Customer();
+	 c3.setCustomerid(103);
+	 c3.setCustomername("ha");
+	 c3.setCustomercity("puducherry");
+	 System.out.println("Customer id:"+c3.getCustomerid());
+	 System.out.println("Customer name:"+c3.getCustomername());
+	 System.out.println("Customer city:"+c3.getCustomercity());
+	 //usage of tostring
+	 System.out.println(c3);
+	 
 	}
 
 }
