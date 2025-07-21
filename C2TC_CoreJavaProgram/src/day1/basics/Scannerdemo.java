@@ -20,6 +20,7 @@ public class Scannerdemo {
 		b=si.nextInt();
 		c=a+b;
 		System.out.println("c = a +b"+c);
+		si.close();
 		
 
 	}
