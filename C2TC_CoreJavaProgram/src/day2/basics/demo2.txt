@@ -1,0 +1,27 @@
+Hook
+to get the input in java :
+  Scanner class
+  BufferReader class
+ Scanner class:
+  it is blueprint from which an object can be created
+  the object used in reading user input
+syntax:
+  Scanner si = new Scanner(System.in)
+  next()-single
+  nextLine()
+  nextInt()
+  nextFloat()
+  nextDouble()
+  reading the char
+  char c = reader.next().charAt(0);
+  
+  has is the check the value is there or not in collection 
+  
+ hasNextDouble()
+ it has more value
+ BufferedReader Object createion 
+  the bufferedReader is more efficiency and because it read the 
+  charater more faster 
+hands on coding
+ 
+  
