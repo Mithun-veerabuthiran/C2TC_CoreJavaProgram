@@ -2,6 +2,7 @@ package day1.pra;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 
 public class Impbuildfucntion {
 
@@ -80,7 +81,54 @@ public class Impbuildfucntion {
 
       reader.close();
       
-      
+     //Checks if the stream supports mark/reset.
+      System.out.println("Does reader support mark()? " + reader.markSupported());
+      reader.close();
+      //StringBuilder
+      StringBuilder sb = new StringBuilder("Hello");
+      sb.append(" Java");
+      sb.reverse();
+      System.out.println(sb); 
+      // output➝ avaJ olleH
+      //Math Class
+      System.out.println(Math.max(10, 20));     // ➝ 20
+      System.out.println(Math.pow(2, 3));       // ➝ 8.0
+      System.out.println(Math.sqrt(16));        // ➝ 4.0
+      System.out.println(Math.abs(-10));        // ➝ 10
+      //Arrays Class
+      //Arrays.sort() =Sorts the array in ascending order
+      int[] arr = {5, 2, 3};
+      Arrays.sort(arr);  // [2, 3, 5]
+      //Arrays.toString()	Converts array to readable string
+      System.out.println(Arrays.toString(arr)); // ➝ [2, 3, 5]
+      //Arrays.equals()	Compares two arrays (element by element)
+      int[] a = {1, 2, 3};
+      int[] b = {1, 2, 3};
+      System.out.println(Arrays.equals(a, b)); // ➝ true
+      //Arrays.copyOf()	Copies full or part of an array	int[] newArr = Arrays.copyOf(arr, 3);
+      int[] original = {1, 2, 3, 4};
+      int[] copy = Arrays.copyOf(original, 2); // ➝ [1, 2]
+      //Arrays.copyOfRange()=Copies range from array=Arrays.copyOfRange(arr, 1, 4)
+      int[] arre = {10, 20, 30, 40, 50};
+      int[] subArr = Arrays.copyOfRange(arre, 1, 4); // ➝ [20, 30, 40]
+      //Arrays.fill()=Fills all elements with a given value=Arrays.fill(arr, 0);
+      int[] arred = new int[5];
+      Arrays.fill(arred, 7); // ➝ [7, 7, 7, 7, 7]
+      //Arrays.binarySearch()=Searches for an element (must be sorted)=Arrays.binarySearch(arr, 4)
+      int[] ar = {1, 3, 5, 7};
+      int index = Arrays.binarySearch(ar, 5); // ➝ 2
+      //So Cool Elephants Fly Between Trees
+      //S = sort()
+
+    		 // C = copyOf(), copyOfRange()
+
+    		 // E = equals()
+
+    		//  F = fill()
+
+    		//  B = binarySearch()
+
+    		 // T = toString()
       
      }
      catch(Exception e) {
