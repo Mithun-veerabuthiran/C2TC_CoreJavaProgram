@@ -1,0 +1,76 @@
+private:
+Great question! Let's break it down:
+
+### 🔁 Code in focus:
+
+```java
+private static MyClass obj = new MyClass();
+```
+
+This line is **key to implementing the Singleton design pattern** in Java.
+
+---
+
+### ✅ Purpose of this line:
+
+This line ensures that:
+
+1. **Only one instance** of `MyClass` is **created and stored** in the static variable `obj`.
+2. It is created **eagerly**, meaning: the instance is created **as soon as the class is loaded** into memory.
+3. It is marked `private` so that **no other class can access or create it directly**.
+4. It is `static`, which means it's associated with the **class itself**, not with any object—this allows the static method `getObject()` to return it.
+
+---
+
+### 🔒 Why `private constructor`?
+
+```java
+private MyClass() {
+    System.out.println("MyClass object created");
+}
+```
+
+This **prevents other classes from creating new instances** of `MyClass` using `new MyClass()`—which is what enforces the Singleton pattern.
+
+---
+
+### 🏭 Why `getObject()` method?
+
+```java
+public static MyClass getObject() {
+    return obj;
+}
+```
+
+This is a **factory method**. It provides **controlled access** to the single instance of `MyClass`. Other classes **must use this method** to get the instance.
+
+---
+
+### 💡 Summary:
+
+| Part                                          | Purpose                                                  |
+| --------------------------------------------- | -------------------------------------------------------- |
+| `private static MyClass obj = new MyClass();` | Eagerly creates the **one and only** object of `MyClass` |
+| `private MyClass()`                           | Prevents external instantiation                          |
+| `public static MyClass getObject()`           | Provides global access point to the single instance      |
+
+---
+
+### 🔄 Example Usage:
+
+```java
+public class Test {
+    public static void main(String[] args) {
+        MyClass m1 = MyClass.getObject();
+        MyClass m2 = MyClass.getObject();
+
+        m1.setId(101);
+        System.out.println(m1); // MyClass [id=101]
+        System.out.println(m2); // MyClass [id=101] --> same object as m1!
+        
+        System.out.println(m1 == m2); // true
+    }
+}
+```
+
+Let me know if you want a version with lazy initialization (object created only when needed).

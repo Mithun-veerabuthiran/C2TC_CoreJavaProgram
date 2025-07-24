@@ -1,0 +1,24 @@
+instanceof:
+The instanceof operator in Java is used to check whether an object is an instance of a specific class or a subclass (or implements an interface). 
+
+class Base {}
+class Derived extends Base {}
+
+public class Main {
+    public static void main(String[] args) {
+        Base b1 = new Derived(); // polymorphic reference
+
+        if (b1 instanceof Derived) {
+            System.out.println("b1 is a Derived object.");
+        }
+
+        if (b1 instanceof Base) {
+            System.out.println("b1 is a Base object."); // This will run too
+        }
+    }
+}
+
+Summary:
+b1 instanceof Base returns true if b1 is an object of class Base or any subclass of Base.
+
+It's used to safely check types before casting or to drive logic based on object type.
