@@ -117,3 +117,111 @@ java
 Copy
 Edit
 List<String> immutable = List.copyOf(originalList); // Java 9+
+
+
+
+unmodifiableSet()and unmodifiableMap()
+
+Great question! Let's dive into how to create **read-only (unmodifiable)** versions of a `Set` and a `Map` using:
+
+---
+
+## 🔒 `Collections.unmodifiableSet()`
+
+## 🔒 `Collections.unmodifiableMap()`
+
+These are used when you want to **prevent modification** of your `Set` or `Map` — ideal for protecting data integrity in large applications or interview design questions.
+
+---
+
+### ✅ 1. `unmodifiableSet()` Example
+
+```java
+import java.util.*;
+
+public class UnmodifiableSetExample {
+    public static void main(String[] args) {
+        Set<String> originalSet = new HashSet<>();
+        originalSet.add("Red");
+        originalSet.add("Green");
+        originalSet.add("Blue");
+
+        Set<String> readOnlySet = Collections.unmodifiableSet(originalSet);
+
+        System.out.println("Original Set: " + originalSet);
+
+        // Try modifying the read-only set
+        try {
+            readOnlySet.add("Yellow");  // ❌ Throws UnsupportedOperationException
+        } catch (UnsupportedOperationException e) {
+            System.out.println("❌ Cannot modify unmodifiable set!");
+        }
+
+        // Modifying original set still affects read-only view
+        originalSet.add("Black");
+        System.out.println("Modified Original Set: " + originalSet);
+        System.out.println("Read-Only Set: " + readOnlySet);
+    }
+}
+```
+
+---
+
+### ✅ 2. `unmodifiableMap()` Example
+
+```java
+import java.util.*;
+
+public class UnmodifiableMapExample {
+    public static void main(String[] args) {
+        Map<String, Integer> originalMap = new HashMap<>();
+        originalMap.put("Apple", 1);
+        originalMap.put("Banana", 2);
+        originalMap.put("Orange", 3);
+
+        Map<String, Integer> readOnlyMap = Collections.unmodifiableMap(originalMap);
+
+        System.out.println("Original Map: " + originalMap);
+
+        // Try modifying read-only map
+        try {
+            readOnlyMap.put("Grapes", 4); // ❌ Throws UnsupportedOperationException
+        } catch (UnsupportedOperationException e) {
+            System.out.println("❌ Cannot modify unmodifiable map!");
+        }
+
+        // Modifying original map still reflects in read-only view
+        originalMap.put("Mango", 5);
+        System.out.println("Modified Original Map: " + originalMap);
+        System.out.println("Read-Only Map: " + readOnlyMap);
+    }
+}
+```
+
+---
+
+### 🧠 Interview Tip:
+
+If the interviewer asks:
+
+> **"How do you ensure a collection passed to your class can’t be modified outside?"**
+
+Answer:
+
+> Use `Collections.unmodifiableList()/Set()/Map()` before exposing it to external classes or methods.
+
+---
+
+### ✅ Summary Table
+
+| Method                   | Type | Effect         |
+| ------------------------ | ---- | -------------- |
+| `unmodifiableList(List)` | List | Read-only list |
+| `unmodifiableSet(Set)`   | Set  | Read-only set  |
+| `unmodifiableMap(Map)`   | Map  | Read-only map  |
+
+---
+
+Would you like a **PDF cheat sheet** of all important Java utility functions for interviews?
+
+
