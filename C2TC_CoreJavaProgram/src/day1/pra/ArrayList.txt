@@ -1,0 +1,24 @@
+ What is ArrayList:
+      ArrayList is a resizable array implementation of the List interface in Java.
+ It allows:
+     Dynamic growth/shrink
+     Index-based access
+     Duplicates and nulls allowed
+     
+     
+     
+TOP 10 IMPORTANT ArrayList METHODS (Interview-Focused):
+| Method                 | Description                       | Example                 |
+| ---------------------- | --------------------------------- | ----------------------- |
+| `add()`                | Adds element at the end           | `list.add("Java")`      |
+| `add(index, element)`  | Adds element at position          | `list.add(1, "Python")` |
+| `get(index)`           | Gets element at index             | `list.get(0)`           |
+| `set(index, element)`  | Replaces element                  | `list.set(0, "C++")`    |
+| `remove(index or obj)` | Removes element by index or value | `list.remove("Java")`   |
+| `contains(obj)`        | Checks if element exists          | `list.contains("Java")` |
+| `isEmpty()`            | Checks if list is empty           | `list.isEmpty()`        |
+| `size()`               | Returns number of elements        | `list.size()`           |
+| `clear()`              | Removes all elements              | `list.clear()`          |
+| `indexOf(obj)`         | Returns index of element          | `list.indexOf("Java")`  |
+
+
