@@ -1,0 +1,49 @@
+In Java, the `super` keyword is used to refer to the **immediate superclass** of the current class. However, in your provided code:
+
+```java
+public Address() {
+    super();
+}
+
+public Address(String street, String city, String state, String postalCode) {
+    super();
+    this.street = street;
+    this.city = city;
+    this.state = state;
+    this.postalCode = postalCode;
+}
+```
+
+### ✅ Purpose of `super()` here:
+
+* Since `Address` does **not extend any custom class**, it **implicitly extends `java.lang.Object`**, which is the parent class of all Java classes.
+* The call to `super()` is **invoking the constructor of the superclass (`Object`)**, which does **nothing special** by default.
+
+### 💡 Key Points:
+
+* `super()` **must be the first statement** in a constructor, if used.
+* It's **optional** to write `super()` explicitly if you're calling the **default no-arg constructor** of the superclass — the compiler will insert it automatically if not written.
+* In this case, since `Object` has a default constructor, `super();` is **redundant** and can be **safely removed**.
+
+### ✅ Clean version (optional):
+
+```java
+public Address() {
+    // super(); ← not needed
+}
+
+public Address(String street, String city, String state, String postalCode) {
+    // super(); ← not needed
+    this.street = street;
+    this.city = city;
+    this.state = state;
+    this.postalCode = postalCode;
+}
+```
+
+### 📌 When is `super()` **really useful**?
+
+1. When your class **extends another class** and you want to call the **parent constructor**.
+2. When you want to **access methods or variables** from the parent class that have been overridden in the child.
+
+So in your code, `super()` has **no effect** and is just calling the `Object` class's constructor, which does nothing special. You can safely remove it.
