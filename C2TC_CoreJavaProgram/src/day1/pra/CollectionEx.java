@@ -7,7 +7,6 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
-
 public class CollectionEx {
 
 	public static void main(String[] args) {
@@ -15,7 +14,7 @@ public class CollectionEx {
 	//"Sort Reverse Shuffle — Min Max Frequency — Binary Swap Fill — Unmodifiable"
 	//List list = (List) Arrays.asList(3, 1, 4, 2);	
         List<Integer> list = Arrays.asList(3, 1, 4, 2);
-
+  
 		Collections.sort(list);
 		System.out.println(list);
 		Collections.reverse(list);

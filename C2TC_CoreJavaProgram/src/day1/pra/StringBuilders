@@ -1,0 +1,45 @@
+String Class in Java:
+ 
+   String str1 = "GeeksforGeeks";
+        System.out.println("String using literal: " + str1);
+
+        // Constructor 2: Creating string using new keyword
+        String str2 = new String("Hello Java");
+        System.out.println("String using new keyword: " + str2);
+
+        // Constructor 3: Creating string from character array
+        char[] charArray = { 'J', 'A', 'V', 'A' };
+        String str3 = new String(charArray);
+        System.out.println("String from char array: " + str3);
+
+        // Constructor 4: Creating string from byte array
+        byte[] byteArray = { 72, 101, 108, 108, 111 };
+        String str4 = new String(byteArray);
+        System.out.println("String from byte array: " + str4);
+ 
+ 
+ String input = "Move#Hash#to#Front";
+
+        int hashCount = 0;
+        StringBuilder result = new StringBuilder();
+
+        // Loop through characters
+        for (int i = 0; i < input.length(); i++) {
+            char ch = input.charAt(i);
+            if (ch == '#') {
+                hashCount++;
+            } else {
+                result.append(ch); // store non-# characters
+            }
+        }
+
+        // Add hashCount number of '#' to the front
+        StringBuilder finalOutput = new StringBuilder();
+        for (int i = 0; i < hashCount; i++) {
+            finalOutput.append('#');
+        }
+
+        finalOutput.append(result);
+
+        // Output the result
+        System.out.println(finalOutput.toString());

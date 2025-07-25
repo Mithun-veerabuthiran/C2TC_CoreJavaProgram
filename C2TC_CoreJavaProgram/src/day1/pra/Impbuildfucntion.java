@@ -130,10 +130,19 @@ public class Impbuildfucntion {
 
     		 // T = toString()
       
+     
+      //give the inbuilt to convert the string to array of char
+      String str = "hello";
+      char[] charArray = str.toCharArray();
+
+      // Print characters
+      for (char c : charArray) {
+          System.out.print(c + " ");
+      }
      }
      catch(Exception e) {
       System.out.println(e);    	 
      }
 	}
-
+   
 }
