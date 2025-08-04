@@ -1,0 +1,331 @@
+The difference lies in how String objects are created and stored in Java.
+
+### 1. Normal String Assignment (String Pool)
+```java
+String s1 = "TNSIF";
+String s2 = "TNSIF";
+```
+- Both s1 and s2 refer to the **same object** in the String pool if the value is the same.
+- Example: s1 == s2 is true (they point to the same memory location).
+- Efficient in terms of memory.
+
+### 2. Using new String() Constructor
+```java
+String s3 = new String("TNSIF");
+String s4 = new String("TNSIF");
+```
+- Each statement creates a **new object** in the heap, even if the value is the same.
+- s3 and s4 point to **different objects** in memory.
+- Example: s3 == s4 is false (different memory locations), but s3.equals(s4) is true (same value).
+
+### Summary Table
+
+| Code Example                      | Stored In      | == Comparison | .equals() Comparison |
+|------------------------------------|---------------|---------------|----------------------|
+| String s1 = "TNSIF";               | String pool   | s1 == s2: true| s1.equals(s2): true  |
+| String s2 = "TNSIF";               | String pool   |               |                      |
+| String s3 = new String("TNSIF");   | Heap          | s3 == s4: false| s3.equals(s4): true |
+| String s4 = new String("TNSIF");   | Heap          |               |                      |
+
+**Key point:**  
+- `"TNSIF"` uses the String pool (efficient, shared).
+- `new String("TNSIF")` always makes a new object (not shared).
+
+Let me know if you want an example or further clarification!
+
+
+
+
+
+
+
+Let's break down what each line does and what the output will be, assuming s1 and s2 are defined as follows in your StringComparision.java file (based on common practice and naming):
+
+Suppose:
+```java
+String s1 = "TNSIF";
+String s2 = "TNSIF";
+```
+
+Here's the explanation for each line:
+
+1. **System.out.println(s1.compareTo("tnsif"));**
+   - compareTo() compares two strings lexicographically (dictionary order), considering case (i.e., 'T' vs 't').
+   - "TNSIF" vs "tnsif": ASCII value of 'T' is 84, 't' is 116.
+   - The result will be 84 - 116 = **-32**
+   - Output: `-32`
+
+2. **System.out.println(s1.compareToIgnoreCase("tnsif"));**
+   - compareToIgnoreCase() compares strings lexicographically, ignoring case.
+   - "TNSIF" and "tnsif" are the same when case is ignored.
+   - Output: **0**
+
+3. **System.out.println(s1.compareTo(s2));**
+   - Both s1 and s2 are "TNSIF", so they are exactly equal.
+   - Output: **0**
+
+**Summary of Output:**
+```
+-32
+0
+0
+```
+
+**Why:**
+- The first line gives a negative value because uppercase 'T' is less than lowercase 't' in ASCII.
+- The second line gives 0 because compareToIgnoreCase ignores case and the strings are the same.
+- The third line gives 0 because both strings are exactly the same.
+
+If s1 and s2 have different values in your code, let me know their actual contents for an exact output!
+
+
+
+
+
+
+
+
+
+
+
+
+That’s a **great beginner-level question** — and yes, it can be confusing at first!
+You wrote:
+
+```java
+String s1 = "mithun";
+String s = "mithun";
+```
+
+There’s **no error** — and you're wondering **why** and what exactly is happening behind the scenes. Let's explain clearly and simply.
+
+---
+
+## 🔍 What’s Really Happening?
+
+Both `s1` and `s` are using **string literals**.
+
+```java
+String s1 = "mithun";
+String s = "mithun";
+```
+
+In Java, when you create a string like `"mithun"` without `new`, Java **reuses the same object** from the **String Pool** to save memory.
+
+---
+
+## ✅ What is the **String Pool**?
+
+The **String Pool** is a special area in Java memory where **string literals** are stored.
+
+When you do:
+
+```java
+String s1 = "mithun";
+String s = "mithun";
+```
+
+Java thinks:
+
+> “Hey, I already have a `"mithun"` string in the pool — so I’ll just point `s` to the **same object** as `s1`.”
+
+---
+
+### 🔍 Memory Diagram (Simplified)
+
+```
+   String Pool:
+   --------------
+   "mithun" <--- both s1 and s point to the same object
+     ↑   ↑
+     |   |
+    s1   s
+```
+
+So both `s1` and `s` are pointing to **exactly the same string object**.
+
+---
+
+## 🤔 Let’s Test It
+
+```java
+public class TestStrings {
+    public static void main(String[] args) {
+        String s1 = "mithun";
+        String s = "mithun";
+
+        System.out.println(s1 == s);         // true (same object)
+        System.out.println(s1.equals(s));    // true (same content)
+    }
+}
+```
+
+### Output:
+
+```
+true
+true
+```
+
+* `==` checks **object reference** (same memory → true)
+* `.equals()` checks **string content** (same text → true)
+
+---
+
+## ⚠️ What if You Use `new`?
+
+```java
+String s2 = new String("mithun");
+System.out.println(s1 == s2);         // false
+System.out.println(s1.equals(s2));    // true
+```
+
+### Why?
+
+* `s2` creates a **new object in heap memory**, so it's not the same object as `s1`.
+* But they both still **contain the same characters**, so `.equals()` is `true`.
+
+---
+
+## ✅ Final Summary
+
+| Statement                | What it does                                  |
+| ------------------------ | --------------------------------------------- |
+| `String s1 = "mithun";`  | Stores "mithun" in the String Pool            |
+| `String s = "mithun";`   | Reuses the same string from the pool          |
+| No error?                | ✅ Because Java allows reusing string literals |
+| Same object (`==`)?      | ✅ Yes                                         |
+| Same value (`.equals()`) | ✅ Yes                                         |
+
+---
+
+Let me know if you want me to show the difference between `String`, `StringBuilder`, and `StringBuffer` next.
+
+
+
+
+You're doing great exploring Java string methods! Let's **break each line** down like a complete beginner. You used:
+
+```java
+String s1 = new String("  Indian  ");
+System.out.println(s1.trim());
+System.out.println(s1.strip());
+System.out.println(s1.stripTrailing());
+System.out.println(s1.isEmpty());
+```
+
+---
+
+### 🔹 Full String
+
+```java
+String s1 = "  Indian  ";
+```
+
+This string has:
+
+* 2 spaces **at the beginning**
+* The word **"Indian"**
+* 2 spaces **at the end**
+
+So the string looks like:
+
+```
+[ ][ ] [I][n][d][i][a][n] [ ][ ]
+```
+
+---
+
+## ✅ Now, let’s explain each method:
+
+---
+
+### 1️⃣ `s1.trim()`
+
+```java
+System.out.println(s1.trim());
+```
+
+* **Removes spaces** from the **start and end only**.
+* Inside spaces (if any) stay untouched.
+
+🧠 Think of `trim()` as a basic space remover from edges.
+
+🔹 Input: `"  Indian  "`
+🔹 Output: `"Indian"`
+
+---
+
+### 2️⃣ `s1.strip()`
+
+```java
+System.out.println(s1.strip());
+```
+
+* Same purpose as `trim()` — removes leading and trailing whitespace.
+* ✅ But it also works better for **Unicode spaces** (international characters).
+
+💡 For regular English spaces, `strip()` and `trim()` give the **same result**.
+
+🔹 Output: `"Indian"`
+
+---
+
+### 3️⃣ `s1.stripTrailing()`
+
+```java
+System.out.println(s1.stripTrailing());
+```
+
+* Removes only the **ending spaces**.
+* Keeps the **beginning spaces** untouched.
+
+🔹 Output: `"  Indian"`
+(starts with spaces, ends clean)
+
+---
+
+### 4️⃣ `s1.isEmpty()`
+
+```java
+System.out.println(s1.isEmpty());
+```
+
+* Checks if the **string has 0 characters**.
+
+But in your case:
+
+```java
+String s1 = "  Indian  ";
+```
+
+It has 10 characters — including spaces.
+
+🔹 So result is: `false`
+
+---
+
+## ✅ Summary Table
+
+| Method            | What It Does                   | Output on `"  Indian  "` |
+| ----------------- | ------------------------------ | ------------------------ |
+| `trim()`          | Removes start & end spaces     | `"Indian"`               |
+| `strip()`         | Same as trim, Unicode-aware    | `"Indian"`               |
+| `stripTrailing()` | Removes only **ending** spaces | `"  Indian"`             |
+| `isEmpty()`       | Checks if string is empty      | `false`                  |
+
+---
+
+## 🧠 Bonus Tip:
+
+Want to remove **all spaces** (even in the middle)?
+
+```java
+System.out.println(s1.replace(" ", ""));
+```
+
+🔹 Output: `"Indian"`
+
+---
+
+Would you like to see this in a small Java program with output comments?

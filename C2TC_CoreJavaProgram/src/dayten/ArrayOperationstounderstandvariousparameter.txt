@@ -1,0 +1,169 @@
+ArrayOperations to understand it:
+Absolutely! Let’s walk through your Java code **line by line** and explain it in a very beginner-friendly way. You’ll understand everything clearly — I’ll even break it into simple parts.
+
+---
+
+### 🚀 Part 1: `printArray` method
+
+```java
+static void printArray(int[] arr) {
+	for (int i = 0; i < arr.length; i++)
+		System.out.print(arr[i] + "\t");
+	System.out.println();
+}
+```
+
+✅ **What it does**:
+This method **prints each element** in an array of integers.
+
+🧠 **How it works**:
+
+* `int[] arr`: this means the method accepts an **array of integers**.
+* `arr.length`: gets the **number of elements** in the array.
+* The `for` loop goes from 0 to the last index of the array.
+* `System.out.print(arr[i] + "\t")`: prints each element with a **tab space** between them.
+* `System.out.println()`: moves the cursor to the next line after printing.
+
+📦 **Example**:
+
+```java
+int[] numbers = {2, 4, 6};
+printArray(numbers);
+```
+
+🖨️ Output:
+
+```
+2	4	6	
+```
+
+---
+
+### 🌟 Part 2: `getSum` method
+
+```java
+public static int getSum(int... n) {
+	int sum = 0;
+	for (int no : n)
+		sum += no;
+	return sum;
+}
+```
+
+✅ **What it does**:
+This method returns the **sum of all numbers** passed to it.
+
+🧠 **How it works**:
+
+* `int... n` is called **varargs** (variable arguments).
+
+  * You can pass any number of integers: `getSum(1, 2, 3, 4)`.
+* `for (int no : n)` is a **for-each loop**: it goes through each number in `n`.
+* It adds each number to `sum` and returns the total.
+
+📦 **Example**:
+
+```java
+int total = getSum(1, 2, 3, 4);
+System.out.println(total);
+```
+
+🖨️ Output:
+
+```
+10
+```
+
+---
+
+### 🔢 Part 3: `getOddCount` method
+
+```java
+public static int getOddCount(int b[]) {
+	int count = 0;
+	for (int i = 0; i < b.length; i++) {
+		if (b[i] % 2 != 0)
+			count++;
+	}
+	return count;
+}
+```
+
+✅ **What it does**:
+This method counts how many **odd numbers** are in the array.
+
+🧠 **How it works**:
+
+* It loops through each number in array `b`.
+* Checks if number is **odd**: `b[i] % 2 != 0`
+
+  * `%` is modulus (remainder).
+  * Example: `5 % 2 = 1`, `6 % 2 = 0`.
+* If it’s odd, it increases the `count`.
+
+📦 **Example**:
+
+```java
+int[] nums = {1, 4, 7, 8};
+int oddCount = getOddCount(nums);
+System.out.println(oddCount);
+```
+
+🖨️ Output:
+
+```
+2
+```
+
+(Odd numbers are 1 and 7)
+
+---
+
+### 🔢 Part 4: `getEvenCount` method
+
+```java
+public static int getEvenCount(int b[]) {
+	return b.length - getOddCount(b);
+}
+```
+
+✅ **What it does**:
+This method counts how many **even numbers** are in the array.
+
+🧠 **How it works**:
+
+* Total elements = `b.length`
+* Odd elements = `getOddCount(b)`
+* So, even = total − odd
+
+📦 **Example**:
+
+```java
+int[] nums = {1, 4, 7, 8};
+int evenCount = getEvenCount(nums);
+System.out.println(evenCount);
+```
+
+🖨️ Output:
+
+```
+2
+```
+
+(Even numbers are 4 and 8)
+
+---
+
+### ✅ Summary for You (as a Beginner):
+
+| Method Name    | What It Does                               |
+| -------------- | ------------------------------------------ |
+| `printArray`   | Prints all numbers in the array            |
+| `getSum(...)`  | Adds all numbers given and returns the sum |
+| `getOddCount`  | Counts how many numbers in array are odd   |
+| `getEvenCount` | Counts how many are even (by total − odd)  |
+
+---
+
+Would you like me to add a simple `main()` function to test all of these together?
+	

@@ -1,0 +1,72 @@
+Wrapper Classes:
+Absolutely! Let’s break down each part of your code and explain the concepts of **boxing**, **unboxing**, and **autoboxing** in Java, step by step, for a beginner.
+
+---
+
+### 1. What are Wrapper Classes?
+
+In Java, primitive data types (like `int`, `char`, `double`) are not objects. Sometimes, you need objects instead of primitive types (for example, when working with collections like ArrayList).  
+**Wrapper classes** (like `Integer`, `Character`, `Double`) wrap up primitive types so they can be used as objects.
+
+---
+
+### 2. Unboxing
+
+#### Example:
+```java
+Integer i = new Integer(10); // Boxing: converting int to Integer object
+System.out.println(i);       // Prints: 10 (the value stored in the Integer object)
+
+int b = i.intValue();        // Unboxing: converting Integer object to int primitive
+System.out.println(b);       // Prints: 10
+```
+- **Boxing:** `new Integer(10)` creates an Integer object holding the value 10.
+- **Unboxing:** `i.intValue()` extracts the primitive `int` value (10) from the Integer object.
+
+#### Without using `intValue()` (automatic unboxing):
+
+```java
+int c = i;                  // Java automatically converts Integer to int (unboxing)
+System.out.println(c);      // Prints: 10
+```
+- **Automatic Unboxing:** You can directly assign an Integer object to an int variable. Java automatically calls `intValue()` for you.
+
+---
+
+### 3. Autoboxing
+
+#### Example:
+```java
+int a = 100;
+Integer i1 = a;             // Autoboxing: Java automatically converts int to Integer
+System.out.println(i1);     // Prints: 100
+```
+- **Autoboxing:** When you assign an int to an Integer variable, Java automatically wraps the int value into an Integer object.
+
+---
+
+### 4. Summary Table
+
+| Operation         | Example                        | What happens?                                     |
+|-------------------|-------------------------------|---------------------------------------------------|
+| Boxing            | `Integer i = new Integer(10);` | int → Integer object                              |
+| Unboxing          | `int b = i.intValue();`        | Integer object → int                              |
+| Automatic Unboxing| `int c = i;`                   | Integer object automatically → int                |
+| Autoboxing        | `Integer i1 = a;`              | int automatically → Integer object                |
+
+---
+
+### 5. Why do we need this?
+
+- Sometimes we need to store primitive values as objects (for example, in collections like `ArrayList<Integer>`).
+- Autoboxing and unboxing make it easier to switch between primitives and their wrapper classes.
+
+---
+
+**In summary:**  
+- **Boxing** = int to Integer manually  
+- **Unboxing** = Integer to int manually  
+- **Autoboxing** = int to Integer automatically  
+- **Automatic Unboxing** = Integer to int automatically
+
+Let me know if you want more examples or a diagram!
